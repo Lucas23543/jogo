@@ -1,0 +1,37 @@
+print("***********************************")
+print("*** Bem Vindo Ao Jogo Da Forca! ***")
+print("***********************************")
+
+palavra_secreta = "Python"
+letras_acertadas = ["_", "_", "_", "_", "_", "_"]
+
+enforcou = False
+ganhou = False
+erros = 0
+
+print(letras_acertadas)
+
+while (not enforcou and not ganhou):
+    chute = input("Escolha Uma Letra: ")
+
+    if (chute in palavra_secreta):
+        posicao = 0
+
+        for letra in palavra_secreta:
+            if (chute.upper() == letra.upper()):
+                letras_acertadas[posicao] = letra
+            posicao += 1
+
+    else:
+        erros += 1
+
+    enforcou = erros == 6
+    ganhou = "_" not in letras_acertadas
+    print(letras_acertadas)
+
+if (ganhou):
+    print(f"Parabéns!! Voçê Descobriu a Palavra: {palavra_secreta}")
+else:
+    print(f"Voçê Perdeu!! : {palavra_secreta}")
+
+    print("Fim Do Jogo")
